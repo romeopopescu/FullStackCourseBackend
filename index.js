@@ -24,18 +24,20 @@ let persons = [
       "number": "39-23-6423122"
     }
 ]
-morgan(function (tokens, req, res) {
-  return [
-    tokens.method(req, res),
-    tokens.url(req, res),
-    tokens.status(req, res),
-    tokens.res(req, res, 'content-length'), '-',
-    tokens['response-time'](req, res), 'ms'
-  ].join(' ')
-})
+
+//morgan('tiny')
+// morgan(function (tokens, req, res) {
+//   return [
+//     tokens.method(req, res),
+//     tokens.url(req, res),
+//     tokens.status(req, res),
+//     tokens.res(req, res, 'content-length'), '-',
+//     tokens['response-time'](req, res), 'ms'
+//   ].join(' ')
+// })
 
 app.use(express.json())
-app.use(morgan('combined'))
+//app.use(morgan('combined'))
 
 app.get('/', (request, response) => {
   response.send('<h1>Hello world!</h1>')
